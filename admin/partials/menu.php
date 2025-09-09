@@ -1,6 +1,16 @@
 <?php
 include('config.php');
 include('login-check.php');
+
+function session_echo_unset($session_name)
+{
+    if ($session_name != NULL) {
+        if (isset($_SESSION[$session_name])) {
+            echo $_SESSION[$session_name];
+            unset($_SESSION[$session_name]);
+        }
+    }
+}
 ?>
 
 

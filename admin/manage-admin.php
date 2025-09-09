@@ -8,16 +8,6 @@ include('partials/menu.php');
 
         <?php
 
-        function session_echo_unset($session_name)
-        {
-            if ($session_name != NULL) {
-                if (isset($_SESSION[$session_name])) {
-                    echo $_SESSION[$session_name];
-                    unset($_SESSION[$session_name]);
-                }
-            }
-        }
-
         session_echo_unset('add');
 
         session_echo_unset('delete');
