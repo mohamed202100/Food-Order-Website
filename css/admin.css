@@ -56,6 +56,12 @@ table tr td {
   text-decoration: none;
   font-weight: bold;
 }
+.success {
+  color: #2ed573;
+}
+.error {
+  color: #ff4757;
+}
 .menu {
   border-bottom: 1px solid grey;
 }

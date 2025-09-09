@@ -59,11 +59,11 @@ if(isset($_POST['submit'])){
 
     $result = mysqli_query($connection,$sql);
     if($result == TRUE){
-        $_SESSION['add'] = "Admin Added seccessfully";
+        $_SESSION['add'] = "<div class='success'>Admin Added successfully.</div>";
         header("location:".$SITEURL.'manage-admin.php');
     }
     else{
-        $_SESSION['add'] = "Failed To Add Admin";
+        $_SESSION['add'] = "<div class='error'>Failed To Add Admin.</div>";
         header("location:".$SITEURL.'admin/add-admin.php');
     }
 }
