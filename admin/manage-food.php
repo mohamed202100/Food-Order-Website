@@ -10,6 +10,14 @@ include('<partials/menu.php');
         session_echo_unset('add');
 
         session_echo_unset('upload');
+
+        session_echo_unset('remove');
+
+        session_echo_unset('delete');
+
+        session_echo_unset('no-food-found');
+
+        session_echo_unset('update');
         ?><br><br>
 
         <a href="add-food.php" class="btn-primary">Add Food</a><br><br>
@@ -20,7 +28,8 @@ include('<partials/menu.php');
                 <th>Title</th>
                 <th>Description</th>
                 <th>Price</th>
-                <th>image</th>
+                <th>Image</th>
+                <th>Category</th>
                 <th>Featured</th>
                 <th>Active</th>
                 <th>Action</th>
@@ -37,6 +46,7 @@ include('<partials/menu.php');
                     $description = $row['description'];
                     $price = $row['price'];
                     $image_name = $row['image_name'];
+                    $category = $row['category_id'];
                     $featured = $row['featured'];
                     $active = $row['active'];
 
@@ -56,10 +66,11 @@ include('<partials/menu.php');
                                 echo "<div class='error'>Image Not Added!</div>";
                             } ?>
                         </td>
+                        <td><?php echo $category ?></td>
                         <td><?php echo $featured ?></td>
                         <td><?php echo $active ?></td>
-                        <td><a href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-secondary">Update Category</a>
-                            <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Category</a>
+                        <td><a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-secondary">Update Food</a>
+                            <a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Food</a>
                         </td>
                     </tr>
                 <?php
