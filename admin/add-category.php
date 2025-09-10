@@ -7,14 +7,10 @@ include("partials/menu.php");
         <h1>Add Category</h1><br><br>
 
         <?php
-        if (isset($_SESSION['add'])) {
-            echo $_SESSION['add'];
-            unset($_SESSION['add']);
-        }
-        if (isset($_SESSION['upload'])) {
-            echo $_SESSION['upload'];
-            unset($_SESSION['upload']);
-        }
+
+        session_echo_unset('add');
+
+        session_echo_unset('upload');
         ?>
         <br><br>
         <form action="" method="POST" enctype="multipart/form-data">

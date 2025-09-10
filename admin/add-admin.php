@@ -7,11 +7,8 @@ include('partials/menu.php');
         <h1>Add Admin</h1><br><br>
 
         <?php
-        if(isset($_SESSION['add'])){
-            echo $_SESSION['add'];
-            unset($_SESSION['add']);
-        }
-        ?>
+        session_echo_unset('add');
+        ?><br><br>
 
         <form action="" method="POST">
             <table class="tbl-30">
@@ -48,7 +45,7 @@ include('partials/footer.php');
 ?>
 
 <?php
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $full_name = $_POST['full_name'];
     $user_name = $_POST['user_name'];
     $password = md5($_POST['password']); // Password Encryption
@@ -57,17 +54,14 @@ if(isset($_POST['submit'])){
     username = '$user_name',
     password = '$password';";
 
-    $result = mysqli_query($connection,$sql);
-    if($result == TRUE){
+    $result = mysqli_query($connection, $sql);
+    if ($result == TRUE) {
         $_SESSION['add'] = "<div class='success'>Admin Added successfully.</div>";
-        header("location:".$SITEURL.'manage-admin.php');
-    }
-    else{
+        header("location:" . $SITEURL . 'manage-admin.php');
+    } else {
         $_SESSION['add'] = "<div class='error'>Failed To Add Admin.</div>";
-        header("location:".$SITEURL.'admin/add-admin.php');
+        header("location:" . $SITEURL . 'admin/add-admin.php');
     }
-}
-else{
-    
+} else {
 }
 ?>
