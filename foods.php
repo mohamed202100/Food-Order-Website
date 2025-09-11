@@ -4,7 +4,15 @@ include("partials-front/menu.php");
 <!-- fOOD sEARCH Section Starts Here -->
 <section class="food-search text-center">
     <div class="container">
-
+        <form action="<?php echo SITEURL ?>food-search.php" method="POST">
+            <input type="search" name="search" placeholder="Search for Food.." required>
+            <input type="submit" name="submit" value="Search" class="btn btn-primary">
+        </form>
+    </div>
+</section>
+<section class="food-menu">
+    <div class="container">
+        <h2 class="text-center">Food Menu</h2>
         <?php
         $sql = "SELECT * FROM food  WHERE active='yes';";
         $result = mysqli_query($connection, $sql);
@@ -52,26 +60,10 @@ include("partials-front/menu.php");
         }
 
         ?>
-
-        <form action="food-search.html" method="POST">
-            <input type="search" name="search" placeholder="Search for Food.." required>
-            <input type="submit" name="submit" value="Search" class="btn btn-primary">
-        </form>
-
-    </div>
-</section>
-
-
-<section class="food-menu">
-    <div class="container">
-        <h2 class="text-center">Food Menu</h2>
-
         <div class="clearfix"></div>
-
     </div>
 
 </section>
-<!-- fOOD Menu Section Ends Here -->
 <?php
 include("partials-front/footer.php");
 ?>
